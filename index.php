@@ -2,29 +2,29 @@
 //including the database connection file
 include_once("config.php");
 
-//fetching data in descending order (lastest entry first)
-//$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
-$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // using mysqli_query instead
+
+$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); 
 ?>
 
 <html>
 <head>	
-	<title>SPA project</title>
+	<title>Homepage</title>
 </head>
 
 <body>
+
+<h1 style="background-color:DodgerBlue;">SPA Project</h1>
 <a href="add.html">Add New Data</a><br/><br/>
 
-	<table width='50%' border=0>
+	<table width='100%' border=0>
 
-	<tr bgcolor='#CCCCCC'>
+	<tr bgcolor='#C9E7FF'>
 		<td>Name</td>
 		<td>Age</td>
 		<td>Email</td>
 		<td>Update</td>
 	</tr>
 	<?php 
-	//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
 	while($res = mysqli_fetch_array($result)) { 		
 		echo "<tr>";
 		echo "<td>".$res['name']."</td>";
